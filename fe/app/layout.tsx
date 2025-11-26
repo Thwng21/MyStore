@@ -14,6 +14,11 @@ const bebas = Bebas_Neue({
 export const metadata: Metadata = {
   title: "VANXE Quán",
   description: "Nhà hàng VANXE - Hương vị đỉnh cao",
+  icons: {
+    icon: '/img/th.png',             
+    shortcut: '/img/th.png',     
+    apple: '/img/th.png',            
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

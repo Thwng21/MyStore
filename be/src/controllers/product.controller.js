@@ -67,7 +67,6 @@ class ProductController {
   async updateProduct(req, res) {
     try {
       const productData = req.body;
-      
       const product = await productService.updateProduct(
         req.params.id,
         productData

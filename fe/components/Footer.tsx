@@ -61,7 +61,7 @@ export default function Footer() {
                   <span className="font-bold">Zalo: 0903.129.370</span>
                 </Link>
 
-                <Link href="https://facebook.com/vanxequan" className="flex items-center gap-3 hover:text-orange-400 transition">
+                <Link href="https://www.facebook.com/pham.huu.than.thuong" className="flex items-center gap-3 hover:text-orange-400 transition">
                   <div className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center">
                     <Facebook className="w-6 h-6" />
                   </div>
@@ -88,8 +88,8 @@ export default function Footer() {
                   <Clock className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
                   <p>
                     <strong className="text-white">Giờ mở cửa:</strong><br />
-                    10:00 – 23:00 (T2 - T6)<br />
-                    09:00 – 24:00 (T7, CN & Lễ)
+                    10:00 – 21:00 (T2 - T6)<br />
+                    09:00 – 21:00 (T7, CN & Lễ)
                   </p>
                 </div>
               </div>
@@ -103,7 +103,7 @@ export default function Footer() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white p-4 rounded-xl">
                   <Image
-                    src="/img/qr-fanpage.jpg"
+                    src="/img/fb.png"
                     alt="QR Fanpage"
                     width={200}
                     height={200}
@@ -113,7 +113,7 @@ export default function Footer() {
                 </div>
                 <div className="bg-white p-4 rounded-xl">
                   <Image
-                    src="/img/qr-zalo.jpg"
+                    src="/img/zl.png"
                     alt="QR Zalo"
                     width={200}
                     height={200}
