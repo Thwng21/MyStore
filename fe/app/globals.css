@@ -142,3 +142,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+/* globals.css hoặc app.css */
+input, textarea, button, p, span, div {
+  text-transform: none !important;
+}

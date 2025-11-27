@@ -4,6 +4,7 @@ import { Bebas_Neue } from 'next/font/google';
 import type { Metadata } from 'next';
 import FloatingButtons from '@/components/FloatingButtons';
 import BackToTop from '@/components/BackToTop';
+import { ToastProvider } from '@/components/ui/toast-provider';
 
 const bebas = Bebas_Neue({
   subsets: ['latin'],
@@ -25,9 +26,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="vi">
       <body className={`${bebas.className} relative`}>
-        {children}
-        <FloatingButtons />
-        <BackToTop />
+        <ToastProvider>
+          {children}
+          <FloatingButtons />
+          <BackToTop />
+        </ToastProvider>
       </body>
     </html>
   );

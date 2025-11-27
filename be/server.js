@@ -20,6 +20,9 @@ app.use(express.json()); // QUAN TRỌNG: để đọc được body
 const authRoutes = require('./src/routes/auth.route');
 const productRoutes = require('./src/routes/product.route');
 const categoryRoutes = require('./src/routes/category.route');
+const tableRoutes = require('./src/routes/table.route');
+const orderRoutes = require('./src/routes/order.route');
+// const orderItemRoutes = require('./src/routes/orderItem.route');
 
 connectDB();
 
@@ -59,7 +62,9 @@ app.post('/sendMail', async (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/categories', categoryRoutes);
-
+app.use('/api/tables', tableRoutes);
+app.use('/api/orders', orderRoutes);
+// app.use('/api/order-items', orderItemRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server chạy ở http://localhost:${PORT}`));

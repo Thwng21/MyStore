@@ -20,5 +20,7 @@ const ProductSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+ProductSchema.plugin(mongoosePaginate);
+
 module.exports = mongoose.model("Product", ProductSchema);
 // SẢN PHẨM TRONG MENU: ĐỒ UỐNG, MÓN ĂN

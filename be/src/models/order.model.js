@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const OrderSchema = new mongoose.Schema(
   {
     table: { type: mongoose.Schema.Types.ObjectId, ref: "Table" },
-    items: [{ type: mongoose.Schema.Types.ObjectId, ref: "OrderItem" }],
+    items: [{ type: mongoose.Schema.Types.ObjectId, ref: "OrderItem" }], // ✅ Đúng
     totalAmount: { type: Number, default: 0 },
     status: {
       type: String,
@@ -20,4 +20,3 @@ const OrderSchema = new mongoose.Schema(
 );
 
 module.exports = mongoose.model("Order", OrderSchema);
-// ĐƠN HÀNG: CHỜ PHỤC VỤ, ĐANG PHỤC VỤ, HOÀN THÀNH, ĐÃ THANH TOÁN
