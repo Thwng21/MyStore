@@ -49,8 +49,8 @@ export const login = async (username: string, password: string) => {
   }
 
   // Lưu token + user vào localStorage
-  if (result.data?.accessToken) {
-    localStorage.setItem("accessToken", result.data.accessToken);
+  if (result.data?.token) {
+    localStorage.setItem("accessToken", result.data.token);
     localStorage.setItem("user", JSON.stringify(result.data.user || result.data));
   }
 

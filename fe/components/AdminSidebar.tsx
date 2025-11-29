@@ -33,12 +33,14 @@ export default function AdminSidebar() {
   const handleLogout = () => {
     logout();
     toast('success', "Đã đăng xuất", "Hẹn gặp lại anh chủ!");
+    window.location.href = '/account/login';
   };
 
   return (
-    <aside className="w-72 bg-gradient-to-b from-black via-gray-900 to-black border-r border-white/10 flex flex-col">
-      {/* Logo */}
-      <div className="p-8 border-b border-white/10">
+    <aside className="fixed inset-y-0 left-0 z-50 w-72 bg-gradient-to-b from-black via-gray-900 to-black border-r border-white/10 flex flex-col">
+      
+      {/* Logo - cố định trên cùng */}
+      <div className="flex-shrink-0 p-8 border-b border-white/10">
         <div className="flex items-center gap-4">
           <div className="relative">
             <Beer className="w-14 h-14 text-orange-500 animate-pulse" />
@@ -51,8 +53,8 @@ export default function AdminSidebar() {
         </div>
       </div>
 
-      {/* Menu */}
-      <nav className="flex-1 p-6 space-y-2">
+      {/* Menu - chiếm phần lớn, có thể cuộn nếu quá dài */}
+      <nav className="flex-1 overflow-y-auto p-6 space-y-2 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
         {menuItems.map((item) => {
           const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
           
@@ -76,8 +78,8 @@ export default function AdminSidebar() {
         })}
       </nav>
 
-      {/* Đăng xuất */}
-      <div className="p-6 border-t border-white/10">
+      {/* Nút đăng xuất - cố định dưới cùng */}
+      <div className="flex-shrink-0 p-6 border-t border-white/10">
         <button
           onClick={handleLogout}
           className="w-full flex items-center justify-center gap-4 px-5 py-4 bg-red-600 hover:bg-red-700 rounded-2xl font-bold text-lg transition-all hover:shadow-2xl hover:shadow-red-900/50"

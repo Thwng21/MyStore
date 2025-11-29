@@ -8,7 +8,7 @@ import { motion, useInView } from 'framer-motion';
 const slides = [
   {
     title: "UỐNG SAY SƯA",
-    image: "/img/ab1.png",
+    image: "/img/ab2.png",
     brand: "VANXE QUÁN",
   },
   {
@@ -24,7 +24,7 @@ const slides = [
   },
   {
     title: "COCKTAIL ĐẶC BIỆT",
-    image: "/img/ab1.png",
+    image: "/img/ab2.png",
     brand: "VANXE QUÁN",
   },
   {
@@ -274,10 +274,10 @@ function BestSellerSection({ isInView }: { isInView: boolean }) {
 
   const bestSellers = [
     { id: 1, name: "Gà Nướng Mật Ong", image: "/img/ab3.png" },
-    { id: 2, name: "Mỳ Cay Hải Sản", image: "/img/ab1.png" },
+    { id: 2, name: "Mỳ Cay Hải Sản", image: "/img/ab2.png" },
     { id: 3, name: "Rau Củ Luộc", image: "/img/ab2.png" },
     { id: 4, name: "Bún Chả Nem", image: "/img/ab2.png" },
-    { id: 5, name: "Chả Giò Rế", image: "/img/ab1.png" },
+    { id: 5, name: "Chả Giò Rế", image: "/img/ab2.png" },
     { id: 6, name: "Nem Nướng", image: "/img/ab3.png" },
   ];
 

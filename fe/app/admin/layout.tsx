@@ -26,7 +26,7 @@ export default function AdminLayout({
         <AdminSidebar />
 
         {/* Main Area chính */}
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col ml-72">
           <AdminHeader />
           <main className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-900 via-black to-gray-900">
             <div className="max-w-7xl mx-auto p-6 lg:p-8">

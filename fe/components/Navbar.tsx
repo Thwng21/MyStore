@@ -17,8 +17,8 @@ export default function HomePage() {
                   <Image
                     src="/img/th.png"
                     alt="VANXE Quán Logo"
-                    layout="fill"
-                    objectFit="contain"
+                    fill
+                    style={{ objectFit: 'contain' }}
                   />
                 </div>
                 <div className="hidden md:flex flex-col">

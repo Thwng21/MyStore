@@ -3,9 +3,14 @@
 
 import { Bell, Search, User } from 'lucide-react';
 import { getCurrentUser } from '@/lib/api/auth';
+import { useEffect, useState } from 'react';
 
 export default function AdminHeader() {
-  const user = getCurrentUser();
+  const [user, setUser] = useState<any>(null);
+
+  useEffect(() => {
+    setUser(getCurrentUser());
+  }, []);
 
   return (
     <header className="bg-black/70 backdrop-blur-2xl border-b border-white/10 px-8 py-5 sticky top-0 z-40">

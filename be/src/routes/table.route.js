@@ -9,9 +9,11 @@ const {
 } = require("../middlewares/validation.middleware");
 
 // Public routes
-router.get("/getAll", TableController.getAllTables);
+router.get("/", TableController.getAllTables);
 router.get("/:id", TableController.getTableById);
-router.post("/create", authenticate, TableController.createTable);
+router.post("/", authenticate, TableController.createTable);
+router.post("/bulk", authenticate, TableController.createMultipleTables); // Thêm route tạo nhiều bàn
+router.patch("/:id/status", authenticate, TableController.updateTableStatus); // Thêm route cập nhật trạng thái
 router.put("/:id", authenticate, TableController.updateTable);
 router.delete("/:id", authenticate, TableController.deleteTable);
 
