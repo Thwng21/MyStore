@@ -7,10 +7,18 @@ class AuthService {
   async register(userData) {
     const { username, fullname, phone, password, role } = userData;
 
-    // Kiểm tra user đã tồn tại
-    const existingUser = await User.findOne({ username });
+    // Kiểm tra user đã tồn tại (username hoặc phone)
+    const existingUser = await User.findOne({
+      $or: [{ username }, { phone }],
+    });
+    
     if (existingUser) {
-      throw new Error("Username đã tồn tại");
+      if (existingUser.username === username) {
+        throw new Error("Username đã tồn tại");
+      }
+      if (existingUser.phone === phone) {
+        throw new Error("Số điện thoại đã được sử dụng");
+      }
     }
 
     // Hash password
@@ -42,17 +50,20 @@ class AuthService {
   }
 
   // Đăng nhập
-  async login(username, password) {
-    // Tìm user
-    const user = await User.findOne({ username });
+  async login(identifier, password) {
+    // Tìm user theo username hoặc phone
+    const user = await User.findOne({
+      $or: [{ username: identifier }, { phone: identifier }],
+    });
+    
     if (!user) {
-      throw new Error("Username hoặc password không đúng");
+      throw new Error("Tài khoản hoặc mật khẩu không đúng");
     }
 
     // Kiểm tra password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      throw new Error("Username hoặc password không đúng");
+      throw new Error("Tài khoản hoặc mật khẩu không đúng");
     }
 
     // Tạo token

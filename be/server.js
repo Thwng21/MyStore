@@ -23,6 +23,7 @@ const categoryRoutes = require('./src/routes/category.route');
 const tableRoutes = require('./src/routes/table.route');
 const orderRoutes = require('./src/routes/order.route');
 const emailRoutes = require('./src/routes/email.route');
+const customOrderRoutes = require('./src/routes/customOrder.route');
 // const orderItemRoutes = require('./src/routes/orderItem.route');
 
 connectDB();
@@ -33,6 +34,7 @@ app.use('/api/categories', categoryRoutes);
 app.use('/api/tables', tableRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/email', emailRoutes);
+app.use('/api/custom-orders', customOrderRoutes);
 // app.use('/api/order-items', orderItemRoutes);
 
 const PORT = process.env.PORT || 5000;
