@@ -43,9 +43,24 @@ const slides = [
 export default function AboutSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
 
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+
+  // Responsive check for top carousel
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setItemsPerPage(1);
+      } else {
+        setItemsPerPage(3);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Auto slide mỗi 4 giây
   useEffect(() => {
@@ -146,13 +161,14 @@ export default function AboutSection() {
             <div
               className="flex transition-transform duration-700 ease-in-out"
               style={{
-                transform: `translateX(-${(currentIndex + slides.length) * (100 / 3)}%)`,
+                transform: `translateX(-${(currentIndex + slides.length) * (100 / itemsPerPage)}%)`,
               }}
             >
               {extendedSlides.map((slide, index) => (
                 <div
                   key={index}
-                  className="w-full md:w-1/3 flex-shrink-0 px-2 md:px-3"
+                  className="shrink-0 px-2 md:px-3"
+                  style={{ width: `${100 / itemsPerPage}%` }}
                 >
                   {/* Container ảnh với viền đứt nứt */}
                   <div 
@@ -271,6 +287,7 @@ export default function AboutSection() {
 // Component Best Seller
 function BestSellerSection({ isInView }: { isInView: boolean }) {
   const [bestSellerIndex, setBestSellerIndex] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(4);
 
   const bestSellers = [
     { id: 1, name: "Gà Nướng Mật Ong", image: "/img/ab3.png" },
@@ -281,21 +298,44 @@ function BestSellerSection({ isInView }: { isInView: boolean }) {
     { id: 6, name: "Nem Nướng", image: "/img/ab3.png" },
   ];
 
+  // Responsive check
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setItemsPerPage(1);
+      } else if (window.innerWidth < 1024) {
+        setItemsPerPage(2);
+      } else {
+        setItemsPerPage(4);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Auto scroll
   useEffect(() => {
+    const maxIndex = Math.max(0, bestSellers.length - itemsPerPage);
+    if (maxIndex === 0) return;
+
     const timer = setInterval(() => {
-      setBestSellerIndex((prev) => (prev + 1) % (bestSellers.length - 3));
+      setBestSellerIndex((prev) => (prev + 1) % (maxIndex + 1));
     }, 3000);
     return () => clearInterval(timer);
-  }, [bestSellers.length]);
+  }, [itemsPerPage, bestSellers.length]);
 
   const handlePrevBest = () => {
-    setBestSellerIndex((prev) => (prev - 1 + (bestSellers.length - 3)) % (bestSellers.length - 3));
+    const maxIndex = Math.max(0, bestSellers.length - itemsPerPage);
+    setBestSellerIndex((prev) => (prev - 1 + (maxIndex + 1)) % (maxIndex + 1));
   };
 
   const handleNextBest = () => {
-    setBestSellerIndex((prev) => (prev + 1) % (bestSellers.length - 3));
+    const maxIndex = Math.max(0, bestSellers.length - itemsPerPage);
+    setBestSellerIndex((prev) => (prev + 1) % (maxIndex + 1));
   };
+
+  const maxIndex = Math.max(0, bestSellers.length - itemsPerPage);
 
   return (
     <motion.div
@@ -331,17 +371,18 @@ function BestSellerSection({ isInView }: { isInView: boolean }) {
         </button>
 
         {/* Slider món ăn */}
-        <div className="overflow-hidden mx-16 md:mx-20">
+        <div className="overflow-hidden mx-12 md:mx-20">
           <div 
-            className="flex transition-transform duration-500 ease-in-out gap-4 md:gap-6"
+            className="flex transition-transform duration-500 ease-in-out"
             style={{
-              transform: `translateX(-${bestSellerIndex * (100 / 4 + 1.5)}%)`,
+              transform: `translateX(-${bestSellerIndex * (100 / itemsPerPage)}%)`,
             }}
           >
             {bestSellers.map((item, index) => (
               <div 
                 key={item.id}
-                className="flex-shrink-0 w-[calc(25%-1rem)]"
+                className="shrink-0 px-2 md:px-3"
+                style={{ width: `${100 / itemsPerPage}%` }}
               >
                 <div 
                   className="bg-white p-2 md:p-3 relative group cursor-pointer"
@@ -365,7 +406,7 @@ function BestSellerSection({ isInView }: { isInView: boolean }) {
                   
                   {/* Tên món */}
                   <div className="absolute bottom-2 left-2 right-2 bg-black/70 px-2 py-1 rounded">
-                    <p className="text-white text-xs md:text-sm font-bold text-center truncate">
+                    <p className="text-white text-lg md:text-sm font-bold text-center truncate">
                       {item.name}
                     </p>
                   </div>
@@ -389,7 +430,7 @@ function BestSellerSection({ isInView }: { isInView: boolean }) {
 
       {/* Chấm chỉ báo */}
       <div className="flex justify-center gap-2 mt-8">
-        {Array.from({ length: bestSellers.length - 3 }).map((_, i) => (
+        {Array.from({ length: maxIndex + 1 }).map((_, i) => (
           <button
             key={i}
             onClick={() => setBestSellerIndex(i)}

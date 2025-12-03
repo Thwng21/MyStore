@@ -5,6 +5,7 @@ import AboutSection from "@/components/AboutSection";
 import SendInfomationSection from "@/components/SendInfomationSection";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
+import YouTubeWall from "@/components/3DSection";
 export default function Home() {
   return (
     <div className="mx-auto p-4">
@@ -12,6 +13,7 @@ export default function Home() {
       <SlideSection />
       <AboutSection />
       <SendInfomationSection />
+      <YouTubeWall />
       <ContactSection />
       <Footer />
     </div>

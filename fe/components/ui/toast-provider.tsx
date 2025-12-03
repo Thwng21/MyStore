@@ -123,7 +123,7 @@ export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
                 {/* Logo chìm góc dưới phải */}
                 <div className="absolute bottom-2 right-3 opacity-10 pointer-events-none">
                   <Image
-                    src="/th.png"
+                    src="/img/th.png"
                     alt="VANXE"
                     width={60}
                     height={60}

@@ -33,7 +33,7 @@ export default function RiceWineSection() {
       {/* Background - Nếp cái hoa vàng + khói bếp */}
       <div className="absolute inset-0">
         <Image
-          src="/img/ruou-nep.png"
+          src="/img/ruou2.png"
           alt="Rượu nếp cái hoa vàng"
           fill
           className="object-cover opacity-30"
@@ -119,7 +119,7 @@ export default function RiceWineSection() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsModalOpen(true)}
-              className="group relative inline-flex items-center gap-5 px-14 py-8 bg-gradient-to-r from-amber-600 to-orange-700 hover:from-amber-500 hover:to-orange-600 rounded-full font-black text-3xl shadow-2xl shadow-amber-900/70 transition-all duration-300"
+              className="group relative inline-flex cursor-pointer items-center gap-5 px-14 py-8 bg-gradient-to-r from-amber-600 to-orange-700 hover:from-amber-500 hover:to-orange-600 rounded-full font-black text-3xl shadow-2xl shadow-amber-900/70 transition-all duration-300"
             >
               <Beer className="w-12 h-12 text-yellow-300 group-hover:animate-bounce" />
               ĐẶT MUA RƯỢU NGAY
@@ -143,7 +143,7 @@ export default function RiceWineSection() {
               <div className="space-y-8 mt-20">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-4 ring-amber-600/30 hover:ring-amber-500/60 transition-all">
                   <Image
-                    src="/img/lo-ruou.jpg"
+                    src="/img/ruou1.png"
                     alt="Lò rượu gạo"
                     width={500}
                     height={600}
@@ -152,7 +152,7 @@ export default function RiceWineSection() {
                 </div>
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-4 ring-amber-600/30">
                   <Image
-                    src="/img/men-la.jpg"
+                    src="/img/ruou2.png"
                     alt="Men lá truyền thống"
                     width={500}
                     height={400}
@@ -164,7 +164,7 @@ export default function RiceWineSection() {
               <div className="space-y-8">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-4 ring-amber-600/30">
                   <Image
-                    src="/img/nep-cai-hoa-vang.jpg"
+                    src="/img/ruou2.png"
                     alt="Gạo nếp cái hoa vàng"
                     width={500}
                     height={500}
@@ -173,7 +173,7 @@ export default function RiceWineSection() {
                 </div>
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-4 ring-amber-600/30">
                   <Image
-                    src="/img/binh-ruou.jpg"
+                    src="/img/ruou2.png"
                     alt="Bình rượu gạo"
                     width={500}
                     height={500}
